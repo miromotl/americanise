@@ -15,6 +15,13 @@ import (
 // The name of the british american word list file
 var britishAmerican = "british-american.txt"
 
+// When starting the program, prepend the directory name to the name of
+// word list file
+func init() {
+    dir, _ := filepath.Split(os.Args[0])
+    britishAmerican = filepath.Join(dir, britishAmerican)
+}
+
 func main() {
     inFilename, outFilename, err := filenamesFromCommandLine()
     if err != nil {
